@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="{{url_for('.static', filename='home.css')}}" />
   </head>
   <body>
-    <p>Choose Files for Upload</p>
-    <form action="/server">
-      <input
-        class="button button1"
-        type="file"
-        id="myFile"
-        name="filename"
-        multiple
-      />
-      <input class="button button2" type="submit" />
+    <h1>Choose Files for Upload</h1>
+    <form action="{{ url_for('server.server') }}" method="POST">
+      {{ form.csrf_token }}
+      <div class="row">
+        <div class="col-12 form-group">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Your Email" class="form-control">
+            {% for error in form.email.errors %}
+                <small class="text-danger">{{ error }}</small>  
+            {% endfor %}
+        </div>
+        <div class="col-sm-6 form-group">
+            <label>Upload Document</label>
+            <input type="file" name="images" class="form-control-file" multiple>
+            {% for error in form.images.errors %}
+                <small class="text-danger">{{ error }}</small>  
+            {% endfor %}
+        </div>
+        <div class="col-12 form-group">
+            <button class="btn btn-primary">Upload</button>
+        </div>
+    </div>
     </form>
-
-    <script></script>
   </body>
 </html>

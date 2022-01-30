@@ -1,4 +1,4 @@
-.button {
+.btn {
   border: none;
   color: white;
   padding: 15px 32px;
@@ -10,7 +10,7 @@
   cursor: pointer;
 }
 
-.button1 {
+.btn-primary {
   background-color: #4caf50;
 } /* Green */
 .button2 {
