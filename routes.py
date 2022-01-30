@@ -9,7 +9,10 @@ home = Blueprint('home', __name__)
 def server():
     form = DocumentUploadForm()
     if form.validate_on_submit():
+        print("successful upload")
         return '<h1>Upload Succesful </h1>'
+    else:
+        print("whoops")
     # FIXME: If the validation fails, then redirect to the home page.
     return render_template('home.html', form=form)
 
