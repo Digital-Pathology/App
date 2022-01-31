@@ -1,7 +1,7 @@
 from wtforms.fields import StringField, MultipleFileField
 from wtforms.validators import DataRequired, Email
 from flask_wtf import FlaskForm
-from flask_wtf.file import FileRequired, FileAllowed
+from flask_wtf.file import FileRequired, FileAllowed, FileField
 
 
 class DocumentUploadForm(FlaskForm):
@@ -16,9 +16,10 @@ class DocumentUploadForm(FlaskForm):
     # first_name = StringField('First Name', validators=[DataRequired()])
     # last_name = StringField('Last Name', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
-    images = MultipleFileField('Images',
-                               validators=[
-                                   FileRequired(),
-                                   FileAllowed(['tiff', 'svs', 'jpg'],
-                                               'Whole Slide Image Data Only!')
-                               ])
+    file = MultipleFileField('Images', validators=[
+        # FIXME :: FileRequired activates even though the POST request goes through perfectly
+        FileRequired('FIX ME RIGHT NOW. THIS IS IN THE DocumentUploadForm.py'), 
+        FileAllowed(['tiff', 'svs', 'jpg', 'jpeg', 'png'], 'Whole Slide Image Data Only!')
+    ])
+
+

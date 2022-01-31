@@ -4,7 +4,7 @@
   </head>
   <body>
     <h1>Choose Files for Upload</h1>
-    <form action="{{ url_for('server.server') }}" method="POST">
+    <form action="{{ url_for('server.server') }}" method="POST" enctype="multipart/form-data">
       {{ form.hidden_tag() }}
       <div class="row">
         <div class="col-12 form-group">
@@ -15,15 +15,20 @@
             {% endfor %}
         </div>
         <div class="col-sm-6 form-group">
-            <label>Upload Document</label>
-            <input type="file" name="images" class="form-control-file" multiple>
-            {% for error in form.images.errors %}
+            <label>Images</label>
+            <input type="file" name="file" class="form-control-file" multiple>
+            {% for error in form.file.errors %}
                 <small class="text-danger">{{ error }}</small>  
             {% endfor %}
         </div>
         <div class="col-12 form-group">
             <button class="btn btn-primary">Upload</button>
         </div>
+         {% if loadingbar %}
+          <div class="loadingbar">
+            <p> loading bar goes here!! </p>
+          </div>
+         {% endif %}
     </div>
     </form>
   </body>
