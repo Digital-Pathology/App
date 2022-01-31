@@ -1,4 +1,4 @@
-from wtforms.fields import StringField, MultipleFileField
+from wtforms.fields import StringField, MultipleFileField, SubmitField
 from wtforms.validators import DataRequired, Email
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileRequired, FileAllowed, FileField
@@ -21,5 +21,5 @@ class DocumentUploadForm(FlaskForm):
         FileRequired('FIX ME RIGHT NOW. THIS IS IN THE DocumentUploadForm.py'), 
         FileAllowed(['tiff', 'svs', 'jpg', 'jpeg', 'png'], 'Whole Slide Image Data Only!')
     ])
-
+    submit = SubmitField('Submit Images')
 
