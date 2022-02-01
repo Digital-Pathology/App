@@ -8,21 +8,33 @@
       {{ form.hidden_tag() }}
       <div class="row">
         <div class="col-12 form-group">
-            <label>Email</label>
-            <input type="email" name="email" placeholder="Your Email" class="form-control">
-            {% for error in form.email.errors %}
-                <small class="text-danger">{{ error }}</small>  
-            {% endfor %}
-        </div>
-        <div class="col-sm-6 form-group">
-            <label>Images</label>
-            <input type="file" name="file" class="form-control-file" multiple>
-            {% for error in form.file.errors %}
-                <small class="text-danger">{{ error }}</small>  
-            {% endfor %}
+             {{ form.email.label(class="form-control-label") }}
+             {% if form.email.errors %}
+                {{ form.email(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.email.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+              {% else %}
+                  {{ form.email(class="form-control form-control-lg") }}
+              {% endif %}
         </div>
         <div class="col-12 form-group">
-            <button class="btn btn-primary">Upload</button>
+          {{ form.file.label(class="form-control-label") }}
+          {% if form.file.errors %}
+            {{ form.file(class="form-control form-control-lg is-invalid") }}
+        <div class="invalid-feedback">
+            {% for error in form.file.errors %}
+                <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+      {% else %}
+          {{ form.file(class="form-control form-control-lg") }}
+      {% endif %}
+        </div>
+        <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
         </div>
          {% if loadingbar %}
           <div class="loadingbar">
@@ -31,5 +43,8 @@
          {% endif %}
     </div>
     </form>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>

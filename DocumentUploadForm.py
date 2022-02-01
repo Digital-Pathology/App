@@ -18,7 +18,7 @@ class DocumentUploadForm(FlaskForm):
     email = StringField('Email', validators=[DataRequired(), Email()])
     file = MultipleFileField('Images', validators=[
         # FIXME :: FileRequired activates even though the POST request goes through perfectly
-        FileRequired('FIX ME RIGHT NOW. THIS IS IN THE DocumentUploadForm.py'), 
+        FileRequired('DocumentUploadForm: File Required'), 
         FileAllowed(['tiff', 'svs', 'jpg', 'jpeg', 'png'], 'Whole Slide Image Data Only!')
     ])
     submit = SubmitField('Submit Images')
