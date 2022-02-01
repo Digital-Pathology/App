@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="../static/home.css">
   </head>
   <body>
-    <h1>Choose Files for Upload</h1>
+    <h1>Choose Files for Upload</h1><br>
     <form action="{{ url_for('server.server') }}" method="POST" enctype="multipart/form-data">
       {{ form.hidden_tag() }}
       <div class="row">
