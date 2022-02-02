@@ -13,21 +13,11 @@ def allowed_file(File):
 @backend.route('/server', methods=['GET', 'POST'])
 def server():
     form = DocumentUploadForm()
-    files = request.files.getlist('file')
-    files = list(filter(allowed_file, files))
+    files = list(filter(allowed_file, request.files.getlist('file')))
     if request.method == 'POST':
         if files:
-            return render_template('home.html', form=form, loadingbar=True)
-
-        # return redirect(url_for('home.home_page'))
-    # if the status is 200, then send the data to the ML algorithm. 
-    # Update the main page with a loading bar
-    # to show the progress on classification.
-    elif request.method == 'GET':
-        return '<h1> GET -- Unimplemented </h1>'
-    else:
-        # FIXME: If the validation fails, then redirect to the home page.
-        return render_template('home.html', form=form, loadingbar=False)
+            return render_template('home.html', form=form, loadingbar=True)   
+    return redirect(url_for('home.home_page'))
 
 
 @home.route('/')

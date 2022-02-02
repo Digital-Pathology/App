@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="../static/home.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
   </head>
   <body>
+    <a href="{{ url_for('home.home_page') }}"> 
+      <img class="thumbnail-image" src="{{ url_for('static', filename='drexel-university-logo-png-transparent.png') }}" > 
+    </a> 
     <h1>Choose Files for Upload</h1><br>
     <form action="{{ url_for('server.server') }}" method="POST" enctype="multipart/form-data">
       {{ form.hidden_tag() }}
