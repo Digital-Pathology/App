@@ -13,11 +13,8 @@ class DocumentUploadForm(FlaskForm):
         The MultipleFileField will have the pathologist choose which of the Whole Slide Image files that they want to
             upload to the ML model.
     """
-    # first_name = StringField('First Name', validators=[DataRequired()])
-    # last_name = StringField('Last Name', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     file = MultipleFileField('Images', validators=[
-        # FIXME :: FileRequired activates even though the POST request goes through perfectly
         FileRequired('DocumentUploadForm: File Required'), 
         FileAllowed(['tiff', 'svs', 'jpg', 'jpeg', 'png'], 'Whole Slide Image Data Only!')
     ])
