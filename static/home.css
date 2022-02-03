@@ -10,11 +10,21 @@ h1{
 }
 
 .btn {
-  background-color: rgb(0, 255, 191);
-  color: black;
+  background-color: #00ffbf;
+  color: #000000;
 }
 
 .thumbnail-image {
   width: 50px;
   height: 50px;
+}
+
+.dark-mode {
+  background-color: #5f788a;
+  color: #ffffff;
+}
+
+.light-mode {
+    background-color: #ffffff;
+    color: #5f788a;
 }
