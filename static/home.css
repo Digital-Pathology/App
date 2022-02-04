@@ -1,11 +1,19 @@
 body {
-  background: #5f788a;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #000000;
   margin-top: 5rem;
   margin-left: 5rem;
 }
 
-h1{
+h1 {
+  color: #000000;
+}
+
+.forDarkModeUse {
+ 
+}
+
+.white-text {
   color: #ffffff;
 }
 
@@ -24,7 +32,3 @@ h1{
   color: #ffffff;
 }
 
-.light-mode {
-    background-color: #ffffff;
-    color: #5f788a;
-}
