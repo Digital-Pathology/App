@@ -1,22 +1,21 @@
 body {
   background: #5f788a;
   color: #ffffff;
-  margin-top: 5rem;
-  margin-left: 5rem;
+  width: 600px;
+  margin: 0 auto;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 h1{
+  width: 600px;
+  margin: 0 auto;
   color: #ffffff;
-}
-
-.btn {
-  background-color: rgb(0, 255, 191);
-  color: black;
 }
 
 .thumbnail-image {
   width: 50px;
   height: 50px;
+  padding: 5px;
 }
 
 .form-group {
@@ -30,9 +29,10 @@ h1{
   width: 600px;
   margin: 0 auto;
   padding: 20px;
+  border-radius: 25px;
 }
 
-.file-upload-btn {
+.btn {
   width: 50%;
   margin: 0;
   color: #fff;
@@ -47,7 +47,7 @@ h1{
   font-weight: 700;
 }
 
-.file-upload-btn:hover {
+.btn:hover {
   background: #1AA059;
   color: #ffffff;
   transition: all .2s ease;
@@ -76,7 +76,6 @@ h1{
 }
 
 .image-upload-wrap {
-  margin-top: 20px;
   border: 4px dashed #1FB264;
   position: relative;
 }
