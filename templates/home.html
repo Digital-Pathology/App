@@ -14,31 +14,42 @@
       {{ form.hidden_tag() }}
       <div class="row">
         <div class="col-12 form-group">
-             <label class="form-control-label" for="email">Email</label>
-                  <input class="form-control form-control-lg" id="email" name="email" required type="text">
+             {{ form.email.label(class="form-control-label-email") }}
+             {% if form.email.errors %}
+                {{ form.email(class="form-control-email form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                  {% for error in form.email.errors %}
+                      <span>{{ error }}</span>
+                  {% endfor %}
+              </div>
+            {% else %}
+                {{ form.email(class="form-control-email form-control-lg") }}
+            {% endif %}
         </div>
 
         <div class="col-12 form-group">
           <div class="file-upload">
             <div class="image-upload-wrap">
-              <input class="file-upload-input form-control form-control-lg" id="file" multiple name="file" type='file' onchange="readURL(this);" 
-                  onclick="$('.file-upload-input').trigger( 'click' )"/>
+              {{ form.file.label(class="form-control-label file-upload-input", onclick="$('.file-upload-input').trigger( 'click' )", onchange="readURL(input);") }}
+                {% if form.file.errors %}
+                  {{ form.file(class="form-control form-control-lg is-invalid") }}
+                  <div class="invalid-feedback">
+                    {% for error in form.file.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+              {% else %}
+                  {{ form.file(class="form-control form-control-lg") }}
+              {% endif %}
               <div class="drag-text">
                 <h3>Drag and drop a file or select to add Image</h3>
               </div>
             </div>
-
-            <div class="file-upload-content">
-              <img class="file-upload-image" src="#" alt="your image" />
-              <div class="image-title-wrap">
-                <button type="button"  onclick="process_email()" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Image</span></button>
-              </div>
-            </div>
-
           </div>
         </div>
-        <div class="form-group">
-            <input class="btn btn-primary btn-outline-info" id="submit" name="submit" type="submit" value="Submit Images">
+
+        <div class="form-group "name="submit" type="submit" >
+          {{ form.submit(class="btn btn-primary btn-outline-info file-upload-btn") }}
         </div>
         
         {% if loadingbar %}
