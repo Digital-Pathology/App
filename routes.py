@@ -29,6 +29,7 @@ def server():
         if files:
             print("Creating the thread and kicking it off")
             diagnosis_thread = Thread(target=do_diagnosis, args=("",))
+            diagnosis_thread.start()
     return render_template("diagnosis.html")
 
 @backend.get('/modelStatus')
@@ -55,7 +56,7 @@ def do_diagnosis(path_to_image: str, model_name: str = "dummy_model"):
     status["status"] = "processing"
     for i in range(10):
         status["processing"] = i
-        publish_status(status)
+        publish_status()
         sleep(1)
     status["status"] = "complete"
-    publish_status(status)
+    publish_status()
