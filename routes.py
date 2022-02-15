@@ -26,10 +26,10 @@ async def server():
     form = DocumentUploadForm()
     files = list(filter(allowed_file, request.files.getlist('file')))
     if request.method == 'POST':
-        if files:
-            modelResponse = await sendTheModel(files)
-            return modelResponse
-            # return render_template('home.html', form=form, loadingbar=True)   
+        if form.validate_on_submit():
+            if files:
+                modelResponse = await sendTheModel(files)
+                return render_template('home.html', form=form, loadingbar=True, content=modelResponse)   
     return redirect(url_for('home.home_page'))
 
 
