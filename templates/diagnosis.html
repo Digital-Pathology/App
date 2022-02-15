@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+  </head>
+  <body>
+    <span>
+        <a href="{{ url_for('home.home_page') }}"> 
+          <img class="thumbnail-image" src="{{ url_for('static', filename='drexel-university-logo-png-transparent.png') }}" > 
+        </a> 
+        <button onclick="toggleBackground()">
+        Toggle Dark Mode
+        </button>
+      </span>
+      <div id="modelStatus">
+
+      </div>
+  </body>
+
+  <script>
+        function checkModelStatus() {
+            console.log("Checking Model Status");
+            fetch(`/modelStatus`))
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+                modelStatus = document.getElementByID('modelStatus');
+                modelStatus.textContent = data;
+                return data;
+            })
+        }
+  </script>
+  <script>
+    let intervalID;
+    function startFetchInterval() {
+        intervalID = setInterval(() =>{
+            let data = checkModelStatus();
+            if (data.status === 'complete') {
+                clearFetchInterval();
+            }
+        }, 2000);
+        
+    }
+    function clearFetchInterval() {
+        clearInterval(intervalID);    
+    }
+    
+    startFetchInterval();
+    
+    </script>
+    
+  </html>
