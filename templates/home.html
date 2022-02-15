@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
   </head>
   <body>
@@ -17,7 +18,7 @@
       {{ form.hidden_tag() }}
       <div class="row">
         <div class="col-12 form-group">
-             {{ form.email.label(class="form-control-label-email") }}
+             {{ form.email.label(class="form-control-label-email forDarkModeUse") }}
              {% if form.email.errors %}
                 {{ form.email(class="form-control-email form-control-lg is-invalid") }}
                 <div class="invalid-feedback">
@@ -33,7 +34,7 @@
         <div class="col-12 form-group">
           <div class="file-upload">
             <div class="image-upload-wrap">
-              {{ form.file.label(class="form-control-label file-upload-input", onclick="$('.file-upload-input').trigger( 'click' )", onchange="readURL(input);") }}
+              {{ form.file.label(class="form-control-label file-upload-input") }}
                 {% if form.file.errors %}
                   {{ form.file(class="form-control form-control-lg is-invalid") }}
                   <div class="invalid-feedback">
@@ -45,7 +46,7 @@
                   {{ form.file(class="form-control form-control-lg") }}
               {% endif %}
               <div class="drag-text">
-                <h3>Drag and drop a file or select to add Image</h3>
+                <h3>Drag and drop an image or select a file</h3>
               </div>
             </div>
           </div>
