@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
   </head>
   <body>
@@ -18,7 +17,7 @@
       {{ form.hidden_tag() }}
       <div class="row">
         <div class="col-12 form-group">
-             {{ form.email.label(class="form-control-label-email forDarkModeUse") }}
+             {{ form.email.label(class="form-control-label forDarkModeUse") }}
              {% if form.email.errors %}
                 {{ form.email(class="form-control-email form-control-lg is-invalid") }}
                 <div class="invalid-feedback">
@@ -31,29 +30,23 @@
             {% endif %}
         </div>
 
-        <div class="col-12 form-group">
-          <div class="file-upload">
-            <div class="image-upload-wrap">
-              {{ form.file.label(class="form-control-label file-upload-input") }}
-                {% if form.file.errors %}
-                  {{ form.file(class="form-control form-control-lg is-invalid") }}
-                  <div class="invalid-feedback">
-                    {% for error in form.file.errors %}
-                        <span>{{ error }}</span>
-                    {% endfor %}
-                </div>
-              {% else %}
-                  {{ form.file(class="form-control form-control-lg") }}
-              {% endif %}
-              <div class="drag-text">
-                <h3>Drag and drop an image or select a file</h3>
-              </div>
+        <div class="col-12 form-group form-control-label forDarkModeUse">
+          {{ form.file.label(class="form-control-label file-upload-input") }}
+            Images
+            {% if form.file.errors %}
+              {{ form.file(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.file.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
             </div>
-          </div>
+          {% else %}
+              {{ form.file(class="form-control form-control-lg") }}
+          {% endif %}
         </div>
 
-        <div class="form-group "name="submit" type="submit" >
-          {{ form.submit(class="btn btn-primary btn-outline-info file-upload-btn") }}
+        <div class="form-group " >
+          {{ form.submit(class="btn btn-primary btn-outline-info") }}
         </div>
         
         {% if loadingbar %}
