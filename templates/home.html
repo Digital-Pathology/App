@@ -15,6 +15,7 @@
     <h1 class="forDarkModeUse">Choose Files for Upload</h1><br>
     <form action="{{ url_for('server.server') }}" method="POST" enctype="multipart/form-data">
       {{ form.hidden_tag() }}
+      <fieldset>
       <div class="row">
         <div class="col-12 form-group">
              {{ form.email.label(class="form-control-label forDarkModeUse") }}
@@ -44,6 +45,8 @@
               {{ form.file(class="form-control form-control-lg") }}
           {% endif %}
         </div>
+        </fieldset>
+        <br>
 
         <div class="form-group " >
           {{ form.submit(class="btn btn-outline-info") }}
@@ -54,6 +57,7 @@
             <p> loading bar goes here!! </p>
           </div>
          {% endif %}
+
          {% if content %}
          <div class="model-content">
            <p> model classification goes here!! </p>
@@ -74,6 +78,5 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="../static/home.js"></script>
   </body>
 </html>
