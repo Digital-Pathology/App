@@ -30,7 +30,6 @@
                 {{ form.email(class="form-control-email form-control-lg") }}
             {% endif %}
         </div>
-
         <div class="col-12 form-group form-control-label forDarkModeUse">
           {{ form.file.label(class="form-control-label file-upload-input") }}
             Images
@@ -47,17 +46,14 @@
         </div>
         </fieldset>
         <br>
-
         <div class="form-group " >
           {{ form.submit(class="btn btn-outline-info") }}
         </div>
-        
         {% if loadingbar %}
           <div class="loadingbar">
             <p> loading bar goes here!! </p>
           </div>
          {% endif %}
-
          {% if content %}
          <div class="model-content">
            <p> model classification goes here!! </p>
