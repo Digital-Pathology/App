@@ -32,17 +32,17 @@
         </div>
         <div class="col-12 form-group form-control-label forDarkModeUse">
           {{ form.file.label(class="form-control-label file-upload-input") }}
-            Images
-            {% if form.file.errors %}
-              {{ form.file(class="form-control form-control-lg is-invalid") }}
-              <div class="invalid-feedback">
-                {% for error in form.file.errors %}
-                    <span>{{ error }}</span>
-                {% endfor %}
-            </div>
-          {% else %}
-              {{ form.file(class="form-control form-control-lg") }}
-          {% endif %}
+          Images
+          {% if form.file.errors %}
+            {{ form.file(class="form-control form-control-lg is-invalid") }}
+        <div class="invalid-feedback">
+            {% for error in form.file.errors %}
+                <span>{{ error }}</span>
+            {% endfor %}
+        </div>
+      {% else %}
+          {{ form.file(class="form-control form-control-lg") }}
+      {% endif %}
         </div>
         </fieldset>
         <br>
