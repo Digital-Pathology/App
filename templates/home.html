@@ -2,65 +2,77 @@
 <html>
   <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <script src="{{ url_for('static', filename='home.js') }}" ></script>
   </head>
   <body>
     <span>
-    <a href="{{ url_for('home.home_page') }}"> 
-      <img class="thumbnail-image" src="{{ url_for('static', filename='drexel-university-logo-png-transparent.png') }}" > 
-    </a> 
-    <button onclick="toggleBackground()">
-    Toggle Dark Mode
-    </button>
-  </span>
+      <a href="{{ url_for('home.home_page') }}"> 
+        <img class="thumbnail-image" src="{{ url_for('static', filename='drexel-university-logo-png-transparent.png') }}" > 
+      </a> 
+      <button onclick="toggleBackground()">
+      Toggle Dark Mode
+      </button>
+    </span>
     <h1 class="forDarkModeUse">Choose Files for Upload</h1><br>
-    <form action="{{ url_for('server.server') }}" method="POST" enctype="multipart/form-data">
-      {{ form.hidden_tag() }}
-      <fieldset>
-      <div class="row">
-        <div class="col-12 form-group">
-             {{ form.email.label(class="form-control-label forDarkModeUse") }}
-             {% if form.email.errors %}
-                {{ form.email(class="form-control-email form-control-lg is-invalid") }}
-                <div class="invalid-feedback">
-                  {% for error in form.email.errors %}
-                      <span>{{ error }}</span>
-                  {% endfor %}
+
+    <div class="row">
+      <form class="form-inline center-block" action="{{ url_for('server.server') }}" method="POST" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <fieldset>
+          <div class="col-12 form-group">
+              {{ form.email.label(class="form-control-label forDarkModeUse") }}
+              {% if form.email.errors %}
+                  {{ form.email(class="form-control-email form-control-lg is-invalid") }}
+                  <div class="invalid-feedback">
+                    {% for error in form.email.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                  </div>
+              {% else %}
+                  {{ form.email(class="form-control-email form-control-lg") }}
+              {% endif %}
+          </div>
+          <div class="col-12 form-group form-control-label forDarkModeUse">
+            <label id="browsebutton" class="btn btn-default input-group-addon" for="my-file-selector">
+            {% if form.file.errors %}
+              {{ form.file(class="form-control form-control-lg is-invalid") }}
+              <div class="invalid-feedback">
+                {% for error in form.file.errors %}
+                  <span>{{ error }}</span>
+                {% endfor %}
               </div>
             {% else %}
-                {{ form.email(class="form-control-email form-control-lg") }}
+              {{ form.file(class="form-control form-control-lg my-file-selector") }}
             {% endif %}
-        </div>
-        <div class="col-12 form-group form-control-label forDarkModeUse">
-          {{ form.file.label(class="form-control-label file-upload-input") }}
-          Images
-          {% if form.file.errors %}
-            {{ form.file(class="form-control form-control-lg is-invalid") }}
-        <div class="invalid-feedback">
-            {% for error in form.file.errors %}
-                <span>{{ error }}</span>
-            {% endfor %}
-        </div>
-      {% else %}
-          {{ form.file(class="form-control form-control-lg") }}
-      {% endif %}
-        </div>
-        </fieldset>
-        <br>
-        <div class="form-group " >
-          {{ form.submit(class="btn btn-outline-info") }}
-        </div>
-        {% if loadingbar %}
-          <div class="loadingbar">
-            <p> loading bar goes here!! </p>
+            </label>
           </div>
-         {% endif %}
-         {% if content %}
-         <div class="model-content">
-           <p> model classification goes here!! </p>
-         </div>
-        {% endif %}
-    </div>
+        </fieldset>
+          <br>
+          <div class="form-group " >
+            {{ form.submit(class="btn btn-primary") }}
+          </div>
+          <div id="progress_wrapper" class="d-none">
+            <label id="progress_status"></label>
+            <div class="progress mb-3">
+              <div id="progress" class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+
+          <div id="alert_wrapper"></div>
+
+          {% if loadingbar %}
+            <div class="loadingbar">
+              <p> loading bar goes here!! </p>
+            </div>
+          {% endif %}
+          {% if content %}
+          <div class="model-content">
+            <p> model classification goes here!! </p>
+          </div>
+          {% endif %}
+      </div>
     </form>
+  </div>
     <script> 
       function toggleBackground() {
         var element = document.body;
