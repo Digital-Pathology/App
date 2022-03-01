@@ -44,20 +44,20 @@
             {% endif %}
           </div>
         </fieldset>
-          <br>
-          <div class="form-group " >
-            {{ form.submit(class="btn btn-submit btn-outline-info") }}
+        <br>
+        <div class="form-group " >
+          {{ form.submit(class="btn btn-submit btn-outline-info") }}
+        </div>
+        {% if loadingbar %}
+          <div class="loadingbar">
+            <p> loading bar goes here!! </p>
           </div>
-          {% if loadingbar %}
-            <div class="loadingbar">
-              <p> loading bar goes here!! </p>
-            </div>
-          {% endif %}
-          {% if content %}
+        {% endif %}
+        {% if content %}
           <div class="model-content">
             <p> model classification goes here!! </p>
           </div>
-          {% endif %}
+        {% endif %}
       </form>
     </div>
     <script> 
