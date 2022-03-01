@@ -3,6 +3,7 @@
 
 <head>
   <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+  <script src="{{ url_for('static', filename='server.js') }}"></script>
 </head>
 
 <body>
@@ -10,12 +11,12 @@
     <a href="{{ url_for('home.home_page') }}">
       <img class="thumbnail-image" src="{{ url_for('static', filename='drexel-university-logo-png-transparent.png') }}">
     </a>
-    <button onclick="toggleBackground()">
-      Toggle Dark Mode
-    </button>
   </span>
   <div id="modelStatus">
-
+    
+  </div>
+  <div id="myProgress">
+    <div id="myBar"></div>
   </div>
 </body>
 
