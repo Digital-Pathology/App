@@ -2,7 +2,6 @@
 <html>
   <head>
     <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
-    <script src="{{ url_for('static', filename='home.js') }}" ></script>
   </head>
   <body>
     <span>
@@ -14,7 +13,6 @@
       </button>
     </span>
     <h1 class="forDarkModeUse">Choose Files for Upload</h1><br>
-
     <div class="row">
       <form class="form-inline center-block" action="{{ url_for('server.server') }}" method="POST" enctype="multipart/form-data">
         {{ form.hidden_tag() }}
@@ -57,9 +55,7 @@
               <div id="progress" class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
           </div>
-
           <div id="alert_wrapper"></div>
-
           {% if loadingbar %}
             <div class="loadingbar">
               <p> loading bar goes here!! </p>
