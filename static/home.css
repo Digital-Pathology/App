@@ -66,6 +66,7 @@ h2 {
   width: 400px;
   height: 400px;
   padding: 5px;
+  float: left;
 }
 
 .form-group {
