@@ -9,22 +9,27 @@
       <a class="navbar-brand" href="#">
         <img class="thumbnail-image" src="{{ url_for('static', filename='drexel-university-logo-png-transparent.png') }}"> 
       </a> 
-      <p>A Drexel University Senior Design Project</p>
+      <p class="ml-2">A Drexel University Senior Design Project</p>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        
-      </div>
+      <ul class="navbar-nav mr-sm-2">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://cci.drexel.edu/seniordesign/2021_2022/DIGITAL_PATHOLOGY_AND_EOSINOPHIL_DETECTION/index.html">Project Webpage</a>
+        </li>
+      </ul>
     </nav>
-    <span>
-      <h1 class="forDarkModeUse">Digital Pathology</h1>
-    </span>
+      
+    <img class="logo" src="{{ url_for('static', filename='dp_logo.png') }}"> 
+
     <div class="row">
       <form action="{{ url_for('server.server') }}" method="POST" enctype="multipart/form-data">
         {{ form.hidden_tag() }}
         <fieldset>
-          <h2 class="forDarkModeUse">Choose Files for Upload</h2><br>
+          <h2 class="forDarkModeUse">Choose Files for Upload</h2>
           <div class="col-12 form-group">
               {{ form.email.label(class="form-control-label forDarkModeUse") }}
               {% if form.email.errors %}
@@ -58,7 +63,6 @@
           <label id="progress-label" for="progress"></label>
           <progress id="progress" value="0" max="100"> </progress>
         </fieldset>
-        <br>
         <div class="form-group " >
           {{ form.submit(class="btn btn-success") }}
         </div>

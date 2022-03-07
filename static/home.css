@@ -4,7 +4,7 @@ body {
   width:fit-content;
   margin: 0 auto;
   font-family: 'Courier New', Courier, monospace;
-  padding-top: 65px;
+  padding-top: 150px;
 }
 
 @media (max-width: 979px) {
@@ -23,14 +23,18 @@ h1 {
 p {
  padding: 5px;
  margin: 0 auto;
- font-size: 20px;
+ font-size: 25px;
 }
 
-h2{
+h2 {
   width: 600px;
   margin: 0 auto;
   color: #ffffff;
   padding: 5px;
+}
+
+.nav-item {
+  font-size: 20px;
 }
 
 .form-control-label {
@@ -42,7 +46,7 @@ h2{
  
 }
 
-.white-text {
+.white-text, .progress-label {
   color: #ffffff;
 }
 
@@ -52,10 +56,16 @@ h2{
 }
 
 .thumbnail-image {
-  width: 50px;
-  height: 50px;
-  padding: 5px;
+  width: 75px;
+  height: 75px;
   float: left;
+}
+
+.logo {
+  float: left;
+  width: 400px;
+  height: 400px;
+  padding: 5px;
 }
 
 .form-group {
@@ -86,7 +96,7 @@ h2{
 }
 
 div#feedback {
-  padding: 10px;
+  padding: 5px;
   margin: 0 auto;
 }
 
