@@ -1,20 +1,42 @@
 body {
-  background: #ffffff;
+  background-color: #5f788a;
   color: #ffffff;
-  width: 600px;
+  width:fit-content;
   margin: 0 auto;
   font-family: 'Courier New', Courier, monospace;
+  padding-top: 65px;
 }
 
-h1{
+@media (max-width: 979px) {
+  body {
+    padding-top: 0px;
+  }
+}
+
+h1 {
+  height: 50px;
+  color: #ffffff;
+  margin: 0 auto;
+  padding-top: 5px;
+}
+
+p {
+ padding: 5px;
+ margin: 0 auto;
+ font-size: 20px;
+}
+
+h2{
   width: 600px;
   margin: 0 auto;
-  color: #000000;
+  color: #ffffff;
+  padding: 5px;
 }
 
 .form-control-label {
-  color: #000000;
+  color: #ffffff;
 }
+
 
 .forDarkModeUse {
  
@@ -33,6 +55,7 @@ h1{
   width: 50px;
   height: 50px;
   padding: 5px;
+  float: left;
 }
 
 .form-group {
@@ -41,7 +64,7 @@ h1{
   padding: 20px;
 }
 
-.btn-submit {
+.submit-btn {
   width: 50%;
   margin: 0;
   color: #fff;
@@ -56,25 +79,28 @@ h1{
   font-weight: 700;
 }
 
-.btn-submit:hover {
-  background: #1AA059;
+.submit-btn:hover {
   color: #ffffff;
   transition: all .2s ease;
   cursor: pointer;
 }
 
-#myProgress {
-  width: 100%;
-  background-color: grey;
+div#feedback {
+  padding: 10px;
+  margin: 0 auto;
 }
 
-#myBar {
-  width: 10%;
-  height: 30px;
-  background-color: #04AA6D;
-  text-align: center; /* To center it horizontally (if you want) */
-  line-height: 30px; /* To center it vertically */
-  color: white;
+a img{
+  border: 0 none;
 }
 
+.image-link{
+  text-decoration: none;
+}
+
+.toggle {
+  position: fixed;
+  bottom: 10px;
+  left: 5px;
+}
 
