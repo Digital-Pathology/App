@@ -1,26 +1,52 @@
 body {
-  background: #ffffff;
+  background-color: #5f788a;
   color: #ffffff;
-  width: 600px;
+  width:fit-content;
   margin: 0 auto;
   font-family: 'Courier New', Courier, monospace;
+  padding-top: 150px;
 }
 
-h1{
+@media (max-width: 979px) {
+  body {
+    padding-top: 0px;
+  }
+}
+
+h1 {
+  height: 50px;
+  color: #ffffff;
+  margin: 0 auto;
+  padding-top: 5px;
+}
+
+p {
+ padding: 5px;
+ margin: 0 auto;
+ font-size: 25px;
+}
+
+h2 {
   width: 600px;
   margin: 0 auto;
-  color: #000000;
+  color: #ffffff;
+  padding: 5px;
+}
+
+.nav-item {
+  font-size: 20px;
 }
 
 .form-control-label {
-  color: #000000;
+  color: #ffffff;
 }
+
 
 .forDarkModeUse {
  
 }
 
-.white-text {
+.white-text, .progress-label {
   color: #ffffff;
 }
 
@@ -30,9 +56,17 @@ h1{
 }
 
 .thumbnail-image {
-  width: 50px;
-  height: 50px;
+  width: 75px;
+  height: 75px;
+  float: left;
+}
+
+.logo {
+  float: left;
+  width: 400px;
+  height: 400px;
   padding: 5px;
+  float: left;
 }
 
 .form-group {
@@ -41,7 +75,7 @@ h1{
   padding: 20px;
 }
 
-.btn {
+.submit-btn {
   width: 50%;
   margin: 0;
   color: #fff;
@@ -56,22 +90,28 @@ h1{
   font-weight: 700;
 }
 
-.btn:hover {
-  background: #1AA059;
+.submit-btn:hover {
   color: #ffffff;
   transition: all .2s ease;
   cursor: pointer;
 }
 
+div#feedback {
+  padding: 5px;
+  margin: 0 auto;
+}
 
-.file-upload-input {
-  position: absolute;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-  outline: none;
-  opacity: 0;
-  cursor: pointer;
+a img{
+  border: 0 none;
+}
+
+.image-link{
+  text-decoration: none;
+}
+
+.toggle {
+  position: fixed;
+  bottom: 10px;
+  left: 5px;
 }
 
