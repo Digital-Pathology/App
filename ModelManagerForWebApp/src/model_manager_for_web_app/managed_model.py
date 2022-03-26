@@ -8,6 +8,7 @@ from typing import Any, Generator
 
 import numpy as np
 
+
 class ManagedModel(ABC):
 
     """
@@ -26,4 +27,3 @@ class ManagedModel(ABC):
                     votes[self.process(region)] += 1
                 return max(votes, key=votes.get) # key with max value
         """
-        
