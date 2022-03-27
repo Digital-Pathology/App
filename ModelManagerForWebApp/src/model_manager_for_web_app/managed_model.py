@@ -8,6 +8,7 @@ from typing import Any, Generator
 
 import numpy as np
 
+
 class ManagedModel(ABC):
 
     """
@@ -15,7 +16,7 @@ class ManagedModel(ABC):
     """
 
     @abstractmethod
-    def diagnose(self, region_stream: Generator[np.ndarray]) -> Any:
+    def diagnose(self, region_stream: Generator[np.ndarray, Any, Any]) -> Any:
         """
             model takes in a stream of regions (numpy arrays) and produces diagnosis
 
@@ -26,4 +27,4 @@ class ManagedModel(ABC):
                     votes[self.process(region)] += 1
                 return max(votes, key=votes.get) # key with max value
         """
-        
+        return None
