@@ -1,7 +1,7 @@
 
 import os
 
-DIAGNOSTIC_MODEL = "testyboi"
+DIAGNOSTIC_MODEL = "kevin_initial"
 
 UPLOADS_DIR = os.path.abspath("./uploads")
 
