@@ -1,5 +1,7 @@
 from flask import Blueprint, render_template, url_for, redirect, request
 import asyncio
+
+from torch import diagonal
 from DocumentUploadForm import DocumentUploadForm
 from pprint import pprint
 from time import sleep
@@ -60,3 +62,6 @@ def do_diagnosis(path_to_image: str, model_name: str = "dummy_model"):
         sleep(1)
     status["status"] = "complete"
     publish_status()
+
+@backend.get('/getProgress')
+def getProgress():
