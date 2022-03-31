@@ -14,10 +14,10 @@ class DocumentUploadForm(FlaskForm):
             upload to the ML model.
     """
     email = StringField('Email', validators=[DataRequired(), Email()])
-    file = MultipleFileField('Images', validators=[FileAllowed(['tiff', 'svs', 'jpg', 'jpeg', 'png'], 'Whole Slide Image Data Only!')])
+    file = MultipleFileField('Images', validators=[FileAllowed(
+        ['tiff', 'svs', 'jpg', 'jpeg', 'png'], 'Whole Slide Image Data Only!')])
     # file = MultipleFileField('Images', validators=[
-    #     FileRequired('DocumentUploadForm: File Required'), 
+    #     FileRequired('DocumentUploadForm: File Required'),
     #     FileAllowed(['tiff', 'svs', 'jpg', 'jpeg', 'png'], 'Whole Slide Image Data Only!')
     # ])
     submit = SubmitField('Submit Images')
-

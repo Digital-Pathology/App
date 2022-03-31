@@ -1,5 +1,8 @@
 Include/
 Lib/
 Scripts/
+uploads/
 pyvenv.cfg
 *.pyc
+*.egg
+*.egg-info
