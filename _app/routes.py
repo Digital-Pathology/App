@@ -37,7 +37,7 @@ def server():
     """ starting the diagnosis thread """
     # form = DocumentUploadForm()
     files = list(filter(allowed_file, request.files.getlist('file')))
-    print(f"{files = }")
+    print(f"{files}")
     if request.method == 'POST':
         if files:
             print("Creating the threads and kicking them off")
