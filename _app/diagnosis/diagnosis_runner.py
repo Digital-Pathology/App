@@ -47,9 +47,3 @@ class DiagnosisRunner:
         with self.status_lock as permission:
             for key, value in kwargs.items():
                 self._status[key] = value
-
-    def get_progress(self):
-        """ returns current progress of model"""
-        current_region = self._status.get("current_region")
-        total_regions = self._status.get("total_regions")
-        return current_region/total_regions

@@ -37,7 +37,7 @@ def server():
     """ starting the diagnosis thread """
     # form = DocumentUploadForm()
     files = list(filter(allowed_file, request.files.getlist('file')))
-    print(f"{files}")
+    print(f"{files = }")
     if request.method == 'POST':
         if files:
             print("Creating the threads and kicking them off")
@@ -58,11 +58,3 @@ def model_status():
     if len(diagnosis_runners) == 0:
         return {"status": "not_started"}
     return {i: diagnosis_runners[i].read_status() for i in range(len(diagnosis_runners))}
-
-
-@backend.get('/progressUpdate')
-def update_progress():
-    """ updates the progress bar """
-    if len(diagnosis_runners) == 0:
-        return 
-    return DiagnosisRunner.get_progress(DiagnosisRunner)

@@ -43,31 +43,11 @@
         return data;
       });
   }
-  var i = 0;
-  function updateProgress() {
-    if (i == 0) {
-      i = 1;
-      var elem = document.getElementById("myBar");
-      var id = setInterval(frame, 10);
-      function frame() {
-        if (width >= 100) {
-          clearInterval(id);
-          i = 0;
-        } else {
-          width = fetch('/updateProgress')
-          console.log(width);
-          elem.style.width = width + "%";
-          elem.innerHTML = width + "%";
-        }
-      }
-    }
-  }
   let intervalID;
   function startFetchInterval() {
     intervalID = setInterval(() => {
       let data = checkModelStatus();
       console.log(data);
-      updateProgress();
       if (data["status"] == 'complete') {
         clearFetchInterval();
       }
