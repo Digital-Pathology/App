@@ -58,3 +58,8 @@ def model_status():
     if len(diagnosis_runners) == 0:
         return {"status": "not_started"}
     return {i: diagnosis_runners[i].read_status() for i in range(len(diagnosis_runners))}
+
+@backend.get('/getProgress')
+def getProgress():
+    """ updates the progress bar """
+    return DiagnosisRunner.get_progress(DiagnosisRunner)

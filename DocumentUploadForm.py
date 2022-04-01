@@ -20,4 +20,5 @@ class DocumentUploadForm(FlaskForm):
     #     FileRequired('DocumentUploadForm: File Required'),
     #     FileAllowed(['tiff', 'svs', 'jpg', 'jpeg', 'png'], 'Whole Slide Image Data Only!')
     # ])
+    model = StringField('Model', validators=[DataRequired()])
     submit = SubmitField('Submit Images')

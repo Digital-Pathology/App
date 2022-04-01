@@ -25,8 +25,8 @@
   <div id="modelStatus">
     
   </div>
-  <div id="myProgress">
-    <div id="myBar">10%</div>
+  <div class="progress">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 10%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
   </div>
 </body>
 
@@ -36,7 +36,7 @@
   function move() {
     if (i == 0) {
       i = 1;
-      var elem = document.getElementById("myBar");
+      var elem = document.getElementById("progress-bar");
       var id = setInterval(frame, 10);
       function frame() {
         if (width >= 100) {

@@ -56,6 +56,19 @@
               {{ form.file(class="form-control-file", id="file-uploader") }}
             {% endif %}
           </div>
+          <div class="col-12 form-group">
+            {{ form.model.label(class="form-control-label forDarkModeUse") }}
+            {% if form.model.errors %}
+                {{ form.model(class="form-control is-invalid") }}
+                <div class="invalid-feedback">
+                  {% for error in form.model.errors %}
+                      <span>{{ error }}</span>
+                  {% endfor %}
+                </div>
+            {% else %}
+                {{ form.model(class="form-control", placeholder="Enter name of the model you'd like to use") }}
+            {% endif %}
+          </div>
           <div id="feedback">
     
           </div>
