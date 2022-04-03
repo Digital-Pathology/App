@@ -90,19 +90,6 @@
         {% endif %}
       </form>
     </div>
-    <button class="toggle" onclick="toggleBackground()">
-      Toggle Dark Mode
-    </button>
-    <script async src="{{ url_for('static', filename='home.js') }}"></script>
-    <script> 
-      function toggleBackground() {
-        var element = document.body;
-        element.classList.toggle('dark-mode');
-        var whiteText = document.getElementsByClassName("forDarkModeUse");
-        Array.from(whiteText).forEach(function (x) {
-          x.classList.toggle("white-text");
-        });
-    }
     </script>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
