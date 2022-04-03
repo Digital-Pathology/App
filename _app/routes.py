@@ -36,19 +36,20 @@ diagnosis_runners = []
 def server():
     """ starting the diagnosis thread """
     # form = DocumentUploadForm()
-    files = list(filter(allowed_file, request.files.getlist('file')))
-    print(f"{files = }")
+    print(request)
+    file = list(filter(allowed_file, request.files.getlist('file')))
+    print(f"{file = }")
     if request.method == 'POST':
-        if files:
+        if file:
+            print(file)
             print("Creating the threads and kicking them off")
-            for f in files:
-                f = save_file_from_request(f)
-                print(f)
-                diagnosis_runner = DiagnosisRunner(config.DIAGNOSTIC_MODEL)
-                diagnosis_thread = Thread(
-                    target=diagnosis_runner.do_diagnosis, args=(f,))
-                diagnosis_thread.start()
-                diagnosis_runners.append(diagnosis_runner)
+            f = save_file_from_request(file[0])
+            print(f)
+            diagnosis_runner = DiagnosisRunner(config.DIAGNOSTIC_MODEL)
+            diagnosis_thread = Thread(
+                target=diagnosis_runner.do_diagnosis, args=(f,))
+            diagnosis_thread.start()
+            diagnosis_runners.append(diagnosis_runner)
     return render_template("diagnosis.html")
 
 
