@@ -15,7 +15,7 @@ class DocumentUploadForm(FlaskForm):
     """
     email = StringField('Email', validators=[DataRequired(), Email()])
     file = FileField('Images', validators=[FileRequired(), FileAllowed(
-        ['tiff', 'svs', 'jpg', 'jpeg', 'png'], 'Whole Slide Image Data Only!')])
+        ['tiff', 'svs', 'jpg', 'jpeg'], 'Whole Slide Image Data Only!')])
     # file = MultipleFileField('Images', validators=[
     #     FileRequired('DocumentUploadForm: File Required'),
     #     FileAllowed(['tiff', 'svs', 'jpg', 'jpeg', 'png'], 'Whole Slide Image Data Only!')

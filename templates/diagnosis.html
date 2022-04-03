@@ -33,7 +33,7 @@
 <script>
   var i = 0;
   var width = 10;
-  function updateProgress() {
+  function updateProgress(data) {
     if (i == 0) {
       i = 1;
       var elem = document.getElementById("progress-bar");
@@ -43,16 +43,16 @@
           clearInterval(id);
           i = 0;
         } else {
-          fetch('/getProgress')
-            .then(function(width) {
-              width = response;
-              console.log(width);
-            })
-          elem.style.width = width + "%";
-          elem.innerHTML = width + "%";
+            width = data[current_region]/data[total_regions]
+            console.log(width);
+            elem.style.width = width + "%";
+            elem.innerHTML = width + "%";
         }
       }
     }
+  }
+  function updateStatus() {
+
   }
   function checkModelStatus() {
     console.log("Checking Model Status");
@@ -71,7 +71,8 @@
     intervalID = setInterval(() => {
       let data = checkModelStatus();
       console.log(data);
-      updateProgress();
+      updateProgress(data);
+      updateStatus();
       if (data["status"] == 'complete') {
         clearFetchInterval();
       }
