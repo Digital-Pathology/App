@@ -60,6 +60,6 @@ def model_status():
     return {i: diagnosis_runners[i].read_status() for i in range(len(diagnosis_runners))}
 
 @backend.get('/getProgress')
-def getProgress():
+def get_progress():
     """ updates the progress bar """
-    return DiagnosisRunner.get_progress(DiagnosisRunner)
+    return diagnosis_runner.get_progress()

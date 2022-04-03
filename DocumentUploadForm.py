@@ -1,7 +1,7 @@
-from wtforms.fields import StringField, MultipleFileField, SubmitField
+from wtforms.fields import StringField, FileField, SubmitField
 from wtforms.validators import DataRequired, Email
 from flask_wtf import FlaskForm
-from flask_wtf.file import FileRequired, FileAllowed, FileField
+from flask_wtf.file import FileRequired, FileAllowed
 
 
 class DocumentUploadForm(FlaskForm):
@@ -14,7 +14,7 @@ class DocumentUploadForm(FlaskForm):
             upload to the ML model.
     """
     email = StringField('Email', validators=[DataRequired(), Email()])
-    file = MultipleFileField('Images', validators=[FileAllowed(
+    file = FileField('Images', validators=[FileRequired(), FileAllowed(
         ['tiff', 'svs', 'jpg', 'jpeg', 'png'], 'Whole Slide Image Data Only!')])
     # file = MultipleFileField('Images', validators=[
     #     FileRequired('DocumentUploadForm: File Required'),

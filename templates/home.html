@@ -29,7 +29,6 @@
       <form action="{{ url_for('server.server') }}" method="POST" enctype="multipart/form-data">
         {{ form.hidden_tag() }}
         <fieldset>
-          <h2 class="forDarkModeUse">Choose Files for Upload</h2>
           <div class="col-12 form-group">
               {{ form.email.label(class="form-control-label forDarkModeUse") }}
               {% if form.email.errors %}
