@@ -17,9 +17,6 @@ fileUploader.addEventListener('change', (event) => {
       
       if (percent === 100) {
         let msg = `<span style="color:white;">File <u><b>${file.name}</b></u> has been uploaded successfully.</span>`;
-        if (files.length > 1) {
-            msg = `<span style="color:white;">Files have been uploaded successfully.</span>`;
-        }
         feedback.innerHTML = msg;
       }
     }
