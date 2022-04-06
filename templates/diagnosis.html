@@ -25,6 +25,9 @@
   <div id="modelStatus">
     
   </div>
+  <div id="progress">
+    Waiting for status update...
+  </div>
   <div class="progress">
     <div class="progress-bar progress-bar-striped progress-bar-animated" id="progress-bar" role="progressbar" style="width: 10%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
   </div>
@@ -53,9 +56,14 @@
       }
     }
   }
-  function updateStatus() {
-
+  function updateStatus(data) {
+      var status = document.getElementById("progress");
+      let current_job = data["0"];
+      console.log(current_job);
+      status.textContent = "filepath: " + current_job["filepath"] + ", model name: " + current_job["model_name"]
+        + ", current region: " + current_job["current_region"] + ", total regions: " + current_job["total_regions"]; 
   }
+
   function checkModelStatus() {
     console.log("Checking Model Status");
     return fetch(`/modelStatus`)
@@ -64,9 +72,8 @@
       })
       .then(data => {
         modelStatus = document.getElementById('modelStatus');
-        modelStatus.textContent = JSON.stringify(data);
         updateProgress(data);
-        updateStatus();
+        updateStatus(data);
         return data;
       });
   }

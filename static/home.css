@@ -115,3 +115,8 @@ a img{
   left: 5px;
 }
 
+.progress {
+  width: 800px;
+  margin: 0 auto;
+}
+
