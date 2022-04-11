@@ -1,6 +1,8 @@
-from flask import request
+from flask import send_from_directory
 import pytest
 from app import create_app
+
+UPLOAD_DIR = ""
 
 @pytest.fixture()
 def app():
@@ -8,6 +10,7 @@ def app():
     test_app.config.update({
         "TESTING": True,
     })
+    UPLOAD_DIR = test_app.config.get("UPLOAD_FOLDER")
 
     # other setup can go here
 
@@ -41,3 +44,4 @@ def test_form(client):
 def test_server(client):
     response = client.get("/server")
     assert response.status_code == 200
+
