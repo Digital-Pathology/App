@@ -45,3 +45,9 @@ def test_server(client):
     response = client.get("/server")
     assert response.status_code == 200
 
+def test_invalid_file(client):
+    file = 'test-0.png'
+    data = {'email': 'amwarkow@gmail.com', 'file':(open(file, 'rb'), file), 'model':'Kevin'}
+    response = client.get("/", data=data)
+    assert response.status_code == 400
+

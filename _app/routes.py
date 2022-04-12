@@ -21,7 +21,7 @@ def home_page():
 
 
 ALLOWED_EXTENSIONS = {'tiff', 'svs', 'jpg', 'tif',
-                      'jpeg', 'png', 'JPG', 'JPEG', 'PNG'}
+                      'jpeg', 'JPG', 'JPEG'}
 
 
 def allowed_file(File):
