@@ -1,5 +1,5 @@
 # DP-WebApp
-[![Tests Status](./test-badge.svg)](./reports/junit/report.html)
+[![Tests Status](./tests-badge.svg)](./reports/junit/report.html)
 
 * This is supposed to be setup in a Python virtual environment, so you can do that by:
 
