@@ -1,5 +1,6 @@
 # DP-WebApp
 [![Tests Status](./tests-badge.svg)](./reports/junit/report.html)
+[![Coverage Status](./coverage-badge.svg)](./reports/coverage/index.html)
 
 * This is supposed to be setup in a Python virtual environment, so you can do that by:
 
