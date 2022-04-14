@@ -5,6 +5,7 @@ from flask import Blueprint, render_template, request
 from DocumentUploadForm import DocumentUploadForm
 
 from .diagnosis import DiagnosisRunner
+from model_manager_for_web_app import ModelManager
 from .file_handling import save_file_from_request
 from . import config
 
@@ -60,3 +61,9 @@ def model_status():
     if len(diagnosis_runners) == 0:
         return {"status": "not_started"}
     return {i: diagnosis_runners[i].read_status() for i in range(len(diagnosis_runners))}
+
+
+@backend.get('/modelList')
+def model_list():
+    """ returns a list of models to the user """
+    return ModelManager().models
