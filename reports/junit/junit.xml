@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="5" time="1.733" timestamp="2022-04-12T00:06:13.326596" hostname="328af3ef9bf7"><testcase classname="test_root" name="test_home1" time="0.021" /><testcase classname="test_root" name="test_home2" time="0.018" /><testcase classname="test_root" name="test_form" time="0.023" /><testcase classname="test_root" name="test_server" time="0.007" /><testcase classname="test_root" name="test_invalid_file" time="0.019"><failure message="assert 200 == 400&#10; +  where 200 = &lt;WrapperTestResponse streamed [200 OK]&gt;.status_code">client = &lt;FlaskClient &lt;Flask 'app'&gt;&gt;
+
+    def test_invalid_file(client):
+        file = 'test-0.png'
+        data = {'email': 'amwarkow@gmail.com', 'file':(open(file, 'rb'), file), 'model':'Kevin'}
+        response = client.get("/", data=data)
+&gt;       assert response.status_code == 400
+E       assert 200 == 400
+E        +  where 200 = &lt;WrapperTestResponse streamed [200 OK]&gt;.status_code
+
+test_root.py:52: AssertionError</failure></testcase></testsuite></testsuites>
