@@ -40,11 +40,13 @@ def server():
     file = list(filter(allowed_file, request.files.getlist('file')))
     print(f"{file = }")
     if request.method == 'POST':
+        print(request)
         if file:
             print(file)
             print("Creating the threads and kicking them off")
             f = save_file_from_request(file[0])
             print(f)
+            # TODO - amanda replace with frontend field contents from the request
             diagnosis_runner = DiagnosisRunner(config.DIAGNOSTIC_MODEL)
             diagnosis_thread = Thread(
                 target=diagnosis_runner.do_diagnosis, args=(f,))
