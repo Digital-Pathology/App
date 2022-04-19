@@ -1,8 +1,11 @@
 from flask_wtf import FlaskForm
 from flask_wtf.file import FileAllowed, FileRequired
-from wtforms.fields import FileField, StringField, SubmitField
+from pip import main
+from wtforms.fields import FileField, StringField, SubmitField, SelectField
 from wtforms.validators import DataRequired, Email
+from model_manager_for_web_app import ModelManager
 
+models = ModelManager().models
 
 class DocumentUploadForm(FlaskForm):
     """DocumentUploadForm Object meant to create the form for submitting Whole Slide Image Data
@@ -17,5 +20,6 @@ class DocumentUploadForm(FlaskForm):
     """
     email = StringField('Email', validators=[DataRequired(), Email()])
     file = FileField('Images', validators=[FileRequired(), FileAllowed(['tiff', 'svs', 'jpg', 'jpeg'], 'Whole Slide Image Data Only!')])
-    model = StringField('Model', validators=[DataRequired()])
+    model = SelectField('Model', validators=[DataRequired()], choices=models)
+    model.default = 1
     submit = SubmitField('Submit Images')
