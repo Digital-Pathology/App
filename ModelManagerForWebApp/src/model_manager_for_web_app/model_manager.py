@@ -3,12 +3,14 @@
     A wrapper on ModelManager that requires use of ManagedModel
 """
 
-from typing import Any
+from types import ModuleType
+from typing import Any, Iterable
 
 from model_manager import ModelManager as OriginalModelManager
 
 from . import config
 from .managed_model import ManagedModel
+
 
 class ModelManager(OriginalModelManager):
 
@@ -23,7 +25,8 @@ class ModelManager(OriginalModelManager):
                    model_name: str,
                    model: ManagedModel,  # no longer Any
                    model_info: dict = None,
-                   overwrite_model: bool = False):
+                   overwrite_model: bool = False,
+                   dependency_modules: Iterable[ModuleType] = None):
         if not isinstance(model, ManagedModel):
             raise TypeError(
                 f"model must be of type ManagedModel but is {type(model)=}")
@@ -31,5 +34,6 @@ class ModelManager(OriginalModelManager):
             model_name,
             model,
             model_info,
-            overwrite_model
+            overwrite_model,
+            dependency_modules
         )
