@@ -7,6 +7,7 @@ from model_manager_for_web_app import ModelManager
 
 models = ModelManager().models
 
+
 class DocumentUploadForm(FlaskForm):
     """DocumentUploadForm Object meant to create the form for submitting Whole Slide Image Data
 
@@ -19,7 +20,8 @@ class DocumentUploadForm(FlaskForm):
         The SubmitField will be the button that submits the form the server for processing.
     """
     email = StringField('Email', validators=[DataRequired(), Email()])
-    file = FileField('Images', validators=[FileRequired(), FileAllowed(['tiff', 'svs', 'jpg', 'jpeg'], 'Whole Slide Image Data Only!')])
+    file = FileField('Images', validators=[FileRequired(), FileAllowed(
+        ['tiff', 'svs', 'jpg', 'jpeg'], 'Whole Slide Image Data Only!')])
     model = SelectField('Model', validators=[DataRequired()], choices=models)
     model.default = 1
     submit = SubmitField('Submit Images')

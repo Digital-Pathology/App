@@ -8,6 +8,7 @@ from . import status_lock
 
 class DiagnosisRunner:
     """ Handles thread-safe diagnosis of images by models """
+
     def __init__(self, model_name) -> None:
         """ model_name is a model handled by ModelManagerForWebApp"""
         self.status_lock = status_lock.StatusLock()
