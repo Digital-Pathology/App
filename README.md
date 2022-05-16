@@ -1,29 +1,29 @@
 # DP-WebApp
 [![Coverage Status](./coverage-badge.svg)](./reports/coverage/index.html)
 
-* This is supposed to be setup in a Python virtual environment, so you can do that by:
 
-  * Typing "python -m venv ." when you are inside this directory. 
-  * And then do "source Scripts/activate" if in bash, or ".\Scripts\activate" if in Powershell. 
-  * And then to get the dependencies, you should be able to just do "pip install -r requirements.txt"
+## This WebApp must be run within the docker-image of Digital-Pathology.
+There must be a .flaskenv file with the following lines:
+- FLASK_APP=app.py
+- FLASK_ENV=development
 
+## Enter either of the following commands in the terminal of the WebApp directory:
+* flask run
+* python -m flask run
 
-To deactivate the virtual environemnt, type "deactivate" in the command line.
+## Go to your browser and type [ http://localhost:5000 ](http::/localhost:5000)
+![screen0](https://user-images.githubusercontent.com/69324309/168503317-61b9f8b9-ef3b-42d6-8e4b-3e2dbf5ee0c3.png)
 
+## You should then see a webapp with the following screen. 
+* Enter your details in the email field, add a tiff image, and choose the name of the model that you would like to use.
+* The model name should located in the [models](models) subfolder.
 
+![screen7](https://user-images.githubusercontent.com/69324309/168503802-0a5f0f13-2a81-4210-8abf-be5846d39303.png)
 
-To get the flask app up and running:
-  * In Bash, do "export FLASK_APP=app.py" and "export FLASN_ENV=development", and then "flask run". 
-    * Or run the runBeforeStart.sh shell command in the bash command line
-  * In Powershell, do '$env:FLASK_ENV = "app.py"' '$env:FLASK_ENV = "development"'
-    * Or run the runBeforeStart.ps1 powershell command in the powershell command line
+## Submit the image by pressing the Submit Images button
+* Wait for the Image to be sent to the back end for processing ...
 
+## Wait for the model to do its magic
+![screen8](https://user-images.githubusercontent.com/69324309/168503995-340e5720-e903-445c-b6f9-cf700b34d44b.png)
 
-
-* Current TODOs:
-  * CSS for the Home page
-  * CSS for the Server page
-  * CSS for the Form in general
-  * Backend creation for ML support
-  * Form validation and testing 
-  * UNKNOWN :: TESTING REQUIRED
+## See the results of the model on your image!
