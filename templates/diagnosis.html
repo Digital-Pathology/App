@@ -41,14 +41,19 @@
       i = 1;
       var elem = document.getElementById("progress-bar");
       var id = setInterval(frame, 10);
+      let current_job = data["0"];
       function frame() {
         if (width >= 100) {
           clearInterval(id);
           i = 0;
-        } else {
-            let current_job = data["0"]
-            let current_region = current_job["current_region"]
-            let total_regions = current_job["total_regions"]
+        } 
+        else if (current_job["diagnosis"] != null) {
+            elem.style.width = 100 + "%";
+            elem.innerHTML = 100 + "%";
+        }
+        else {
+            let current_region = current_job["current_region"];
+            let total_regions = current_job["total_regions"];
             width = current_region/total_regions
             elem.style.width = width + "%";
             elem.innerHTML = width + "%";
@@ -58,10 +63,15 @@
   }
   function updateStatus(data) {
       var status = document.getElementById("progress");
+      var elem = document.getElementById("progress-bar");
       let current_job = data["0"];
       console.log(current_job);
-      status.textContent = "filepath: " + current_job["filepath"] + ", model name: " + current_job["model_name"]
-        + ", current region: " + current_job["current_region"] + ", total regions: " + current_job["total_regions"]; 
+      if (current_job["diagnosis"] != null) {
+        status.textContent = "Diagnosis: " + current_job["diagnosis"];
+      }
+      else {
+        status.textContent = "filepath: " + current_job["filepath"] + ", model name: " + current_job["model_name"] + ", current region: " + current_job["current_region"] + ", total regions: " + current_job["total_regions"]; 
+      }
   }
 
   function checkModelStatus() {
