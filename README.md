@@ -24,6 +24,6 @@ There must be a .flaskenv file with the following lines:
 * Wait for the Image to be sent to the back end for processing ...
 
 ## Wait for the model to do its magic
-* ![screen8](https://user-images.githubusercontent.com/69324309/168503995-340e5720-e903-445c-b6f9-cf700b34d44b.png)
+![screen8](https://user-images.githubusercontent.com/69324309/168503995-340e5720-e903-445c-b6f9-cf700b34d44b.png)
 
 ## See the results of the model on your image!
