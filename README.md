@@ -1,6 +1,4 @@
 # DP-WebApp
-[![Coverage Status](./coverage-badge.svg)](./reports/coverage/index.html)
-
 
 ## This WebApp must be run within the docker-image of Digital-Pathology.
 There must be a .flaskenv file with the following lines:
