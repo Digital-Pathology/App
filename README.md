@@ -26,4 +26,4 @@ There must be a .flaskenv file with the following lines:
 
 ## See the results of the model on your image!
 
-![screen9](https://user-images.githubusercontent.com/69324309/168505283-d15667e0-dbe8-4d42-b171-c74f59a6f4b2.png)
+![screen9](https://user-images.githubusercontent.com/67798719/168728031-4c703b71-a392-4a41-9920-924b89cb88b0.png)
