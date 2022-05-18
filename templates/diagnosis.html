@@ -34,31 +34,19 @@
 </body>
 
 <script>
-  var i = 0;
   var width = 10;
   function updateProgress(data) {
-    if (i == 0) {
-      i = 1;
-      var elem = document.getElementById("progress-bar");
-      var id = setInterval(frame, 10);
-      let current_job = data["0"];
-      function frame() {
-        if (width >= 100) {
-          clearInterval(id);
-          i = 0;
-        } 
-        else if (current_job["diagnosis"] != null) {
-            elem.style.width = 100 + "%";
-            elem.innerHTML = 100 + "%";
-        }
-        else {
-            let current_region = current_job["current_region"];
-            let total_regions = current_job["total_regions"];
-            width = current_region/total_regions
-            elem.style.width = width + "%";
-            elem.innerHTML = width + "%";
-        }
-      }
+    var elem = document.getElementById("progress-bar");
+    let current_job = data["0"];
+    if (current_job["diagnosis"] != null) {
+      elem.style.width = 100 + "%";
+      elem.innerHTML = 100 + "%";
+    } else {
+      let current_region = current_job["current_region"];
+      let total_regions = current_job["total_regions"];
+      width = Math.round((current_region/total_regions) * 100);
+      elem.style.width = width + "%";
+      elem.innerHTML = width + "%";
     }
   }
   function updateStatus(data) {
@@ -68,9 +56,10 @@
       console.log(current_job);
       if (current_job["diagnosis"] != null) {
         status.textContent = "Diagnosis: " + current_job["diagnosis"];
-      }
-      else {
-        status.textContent = "filepath: " + current_job["filepath"] + ", model name: " + current_job["model_name"] + ", current region: " + current_job["current_region"] + ", total regions: " + current_job["total_regions"]; 
+      } else {
+        status.setAttribute('style', 'white-space: pre;');
+        status.textContent = "filepath: " + current_job["filepath"] + "\r\nmodel name: " + current_job["model_name"] + "</p><p>current region: " + current_job["current_region"] 
+          + "\r\ntotal regions: " + current_job["total_regions"]; 
       }
   }
 
